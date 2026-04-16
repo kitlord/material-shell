@@ -1,0 +1,48 @@
+.--shape-ellipse {
+    border-radius: 100%;
+}
+
+.knob {
+    background: var(--mt-on-surface);
+    /* background: var(--mt-primary); */
+    margin: 8px;
+    transition: none;
+}
+
+.transparent {
+    background: transparent;
+}
+
+.material-symbol {
+    font-family: "Material Symbols Rounded";
+    font-size: 18px;
+    margin: 0px 4px;
+    /* font-weight: 400; */
+    line-height: 1;
+    font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+.bar-widget {
+    background: var(--mt-surface-container-highest);
+    color: var(--mt-on-surface);
+    border-radius: var(--mt-shape-full);
+    padding: 3px;
+    /* margin: 3px; */
+}
+
+.workspace {
+    padding: 0;
+}
+
+.battery-widget-icon {
+    font-size: 12px;
+}
+
+.bar {
+    padding: 3px;
+}
+
+/* .icon-button {
+    min-width: 38px;
+    min-height: 38px;
+} */
