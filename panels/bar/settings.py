@@ -1,7 +1,7 @@
 from initgtk import Gtk
 from material.materialwidgets import material_icon
 
-def ControlsWidget():
+def settings():
     controls = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0, css_classes=["bar-widget"])
     controls.set_hexpand(False)
 

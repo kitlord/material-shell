@@ -1,4 +1,4 @@
-from bar import bar
+from panels.bar.bar import bar
 
 def layer(application=None):
     from initgtk import Gtk, Gtk4LayerShell as LayerShell

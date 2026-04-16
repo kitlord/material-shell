@@ -1,9 +1,9 @@
-import controls
-from workspace import Workspace
-from music import MusicWidget
-from spacer import spacer
-from glance import GlanceWidget
-from BatteryWidget import BatteryWidget
+from panels.bar.settings import settings
+from panels.bar.workspace import Workspace
+from panels.bar.music import MusicWidget
+from components.spacer import spacer
+from panels.bar.glance import GlanceWidget
+from components.battery import Battery
 
 def bar(item_size = 28):
     from initgtk import Gtk
@@ -22,8 +22,8 @@ def bar(item_size = 28):
     bar.append(spacer())
     bar.append(Workspace(item_size))
     bar.append(spacer())
-    bar.append(BatteryWidget(item_size=item_size)) #increases height for some reason, investigate later
-    bar.append(BatteryWidget(icon_name="bluetooth", item_size=item_size))
-    bar.append(controls.ControlsWidget())
+    bar.append(Battery(item_size=item_size))
+    bar.append(Battery(icon_name="bluetooth", item_size=item_size))
+    bar.append(settings())
 
     return bar

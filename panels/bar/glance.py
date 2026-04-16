@@ -1,6 +1,6 @@
 from initgtk import Gtk
 from material.materialwidgets import material_icon
-from dashboard import toggle_dashboard
+from panels.dashboard.dashboard import toggle_dashboard
 
 class GlanceWidget(Gtk.Box):
     def __init__(self):

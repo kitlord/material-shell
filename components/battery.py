@@ -1,8 +1,8 @@
 from initgtk import Gtk
-from progress import CircularProgressBar
+from components.progress import CircularProgressBar
 from material.materialwidgets import material_icon
 
-class BatteryWidget(Gtk.Box):
+class Battery(Gtk.Box):
     def __init__(self, item_size, percentage=0.7, icon_name="battery_android_0"):
         super().__init__(
             orientation=Gtk.Orientation.HORIZONTAL,
