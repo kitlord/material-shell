@@ -1,5 +1,5 @@
 from initgtk import Gtk
-from materialwidgets import material_icon
+from material.materialwidgets import material_icon
 
 class MusicWidget(Gtk.Box):
     def __init__(self):

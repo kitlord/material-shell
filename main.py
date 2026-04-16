@@ -1,11 +1,10 @@
 from layer import layer
 import signal
-import materialcss
+import style
 from initgtk import Gtk
 
 def on_activate(app):
-    materialcss.generate_css()
-    materialcss.watch_css_files()
+    style.setup()
     app.hold()
     layer(application=app)
 

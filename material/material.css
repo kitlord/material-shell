@@ -372,6 +372,8 @@
   border-radius: var(--mt-shape-full);
 }
 
+
+
 .--shape-ellipse {
     border-radius: 100%;
 }

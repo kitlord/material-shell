@@ -1,5 +1,5 @@
 from initgtk import Gtk
-from materialwidgets import material_icon
+from material.materialwidgets import material_icon
 
 def ControlsWidget():
     controls = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0, css_classes=["bar-widget"])

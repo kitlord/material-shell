@@ -1,5 +1,6 @@
 from initgtk import Gtk
-from materialwidgets import material_icon
+from material.materialwidgets import material_icon
+from dashboard import toggle_dashboard
 
 class GlanceWidget(Gtk.Box):
     def __init__(self):
@@ -14,7 +15,12 @@ class GlanceWidget(Gtk.Box):
         brightness.set_child(material_icon("brightness_medium"))
 
         for b in (volume, brightness):
-            b.set_sensitive(False)
+            b.connect("clicked", self._on_glance_clicked)
 
         self.append(volume)
         self.append(brightness)
+
+    def _on_glance_clicked(self, _button):
+        root = self.get_root()
+        application = root.get_application() if root else None
+        toggle_dashboard(application=application)
