@@ -1,24 +1,31 @@
 from initgtk import Gtk
-from material.materialwidgets import material_icon
+from components.icon import material_icon
+from panels.settings.settings import toggle_settings
 
-def settings():
-    controls = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0, css_classes=["bar-widget"])
-    controls.set_hexpand(False)
+class SettingsWidget(Gtk.Box):
+    def __init__(self):
+        super().__init__(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)
 
-    wifi = Gtk.Button(css_classes=["icon-button"])
-    wifi.set_child(material_icon("wifi"))
+        self.set_css_classes(["bar-widget"])
+        self.set_hexpand(False)
 
-    bluetooth = Gtk.Button(css_classes=["icon-button"])
-    bluetooth.set_child(material_icon("bluetooth"))
+        wifi = Gtk.Button()
+        wifi.set_child(material_icon("wifi"))
 
-    power = Gtk.Button(css_classes=["icon-button"])
-    power.set_child(material_icon("power_settings_new"))
+        bluetooth = Gtk.Button()
+        bluetooth.set_child(material_icon("bluetooth"))
 
-    for b in (wifi, bluetooth, power):
-        b.set_sensitive(False)
+        power = Gtk.Button()
+        power.set_child(material_icon("power_settings_new"))
 
-    controls.append(wifi)
-    controls.append(bluetooth)
-    controls.append(power)
+        for b in (wifi, bluetooth, power):
+            b.connect("clicked", self._on_settings_clicked)
 
-    return controls
+        self.append(wifi)
+        self.append(bluetooth)
+        self.append(power)
+
+    def _on_settings_clicked(self, _button):
+        root = self.get_root()
+        application = root.get_application() if root else None
+        toggle_settings(application=application)

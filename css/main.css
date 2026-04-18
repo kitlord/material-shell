@@ -17,15 +17,14 @@
     font-family: "Material Symbols Rounded";
     font-size: 18px;
     margin: 0px 4px;
-    /* font-weight: 400; */
     line-height: 1;
-    font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+    font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
 }
 
 .bar-widget {
     background: var(--mt-surface-container-highest);
     color: var(--mt-on-surface);
-    border-radius: var(--mt-shape-full);
+    border-radius: var(--mt-full);
     padding: 3px;
     /* margin: 3px; */
 }
@@ -38,11 +37,37 @@
     font-size: 12px;
 }
 
-.bar {
-    padding: 3px;
+.pad {
+    background: var(--mt-surface);
+    padding: var(--mt-small);
+    border-radius: var(--mt-large);
 }
 
-/* .icon-button {
-    min-width: 38px;
-    min-height: 38px;
-} */
+.progress-bg {
+    padding: 6px;
+}
+
+levelbar.bar-widget block.filled {
+    background: var(--mt-primary);
+    border-radius: var(--mt-full);
+}
+
+.connection-widget {
+    padding: 12px;
+}
+
+.material-widget {
+    background: var(--mt-surface-container-highest);
+    color: var(--mt-on-surface);
+    border-radius: var(--mt-large);
+}
+
+.material-widget.active {
+    background: var(--mt-primary);
+    color: var(--mt-on-primary);
+    border-radius: var(--mt-full);
+}
+
+.material-widget.active .material-symbol {
+    font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}

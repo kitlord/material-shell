@@ -42,7 +42,7 @@ def generate_material_css(theme_mode: str = THEME_MODE, colors_path: Path = DEFA
             css += f"  --mt-{css_name}: {hex_color};\n"
 
     for name, value in shapes.items():
-        css += f"  --mt-shape-{name}: {value};\n"
+        css += f"  --mt-{name}: {value};\n"
 
     css += "}\n\n"
 
@@ -67,10 +67,38 @@ def generate_material_css(theme_mode: str = THEME_MODE, colors_path: Path = DEFA
 
         css += "}\n"
 
-    # Generate utility classes for border radius
+    # Generate utility classes
     for name in shapes.keys():
-        css += f".--mt-shape-{name} {{\n"
-        css += f"  border-radius: var(--mt-shape-{name});\n"
+        css += f".--mt-border-{name} {{\n"
+        css += f"  border-radius: var(--mt-{name});\n"
+        css += "}\n\n"
+
+        css += f".--mt-border-r-{name} {{\n"
+        css += f"  border-top-right-radius: var(--mt-{name});"
+        css += f"  border-bottom-right-radius: var(--mt-{name});\n"
+        css += "}\n\n"
+
+        css += f".--mt-border-l-{name} {{\n"
+        css += f"  border-top-left-radius: var(--mt-{name});"
+        css += f"  border-bottom-left-radius: var(--mt-{name});\n"
+        css += "}\n\n"
+
+        css += f".--mt-border-t-{name} {{\n"
+        css += f"  border-top-left-radius: var(--mt-{name});"
+        css += f"  border-top-right-radius: var(--mt-{name});\n"
+        css += "}\n\n"
+
+        css += f".--mt-border-b-{name} {{\n"
+        css += f"  border-bottom-left-radius: var(--mt-{name});"
+        css += f"  border-bottom-right-radius: var(--mt-{name});\n"
+        css += "}\n\n"
+
+        css += f".--mt-padding-{name} {{\n"
+        css += f"  padding: var(--mt-{name});\n"
+        css += "}\n\n"
+
+        css += f".--mt-margin-{name} {{\n"
+        css += f"  margin: var(--mt-{name});\n"
         css += "}\n\n"
 
     return css

@@ -2,7 +2,7 @@ from pathlib import Path
 
 from gi.repository import Gio, GLib, Gtk, Gdk
 
-from material import materialcss
+from material import generate
 
 
 _ROOT_DIR = Path(__file__).resolve().parent
@@ -21,8 +21,8 @@ def _read_main_css(path: Path = MAIN_CSS_PATH) -> str:
 
 
 def build_combined_css() -> str:
-	material = materialcss.generate_material_css(
-		theme_mode=materialcss.THEME_MODE,
+	material = generate.generate_material_css(
+		theme_mode=generate.THEME_MODE,
 		colors_path=COLORS_JSON_PATH,
 	)
 	return f"{material}\n\n{_read_main_css()}"
@@ -38,10 +38,10 @@ def apply_css() -> None:
 
 	settings = Gtk.Settings.get_default()
 	if settings:
-		settings.set_property("gtk-font-name", materialcss.APP_FONT)
+		settings.set_property("gtk-font-name", generate.APP_FONT)
 		settings.set_property(
 			"gtk-application-prefer-dark-theme",
-			materialcss.THEME_MODE == "dark",
+			generate.THEME_MODE == "dark",
 		)
 
 	Gtk.StyleContext.add_provider_for_display(

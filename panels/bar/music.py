@@ -1,11 +1,11 @@
 from initgtk import Gtk
-from material.materialwidgets import material_icon
+from components.icon import material_icon
 
 class MusicWidget(Gtk.Box):
     def __init__(self):
         super().__init__(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
 
-        self.set_css_classes(["bar-widget", "--mt-shape-full"])
+        self.set_css_classes(["bar-widget", "--mt-border-full"])
 
         # Album art
         details = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=0)

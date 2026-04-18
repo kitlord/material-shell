@@ -12,6 +12,5 @@ def layer(application=None):
     LayerShell.set_anchor(window, LayerShell.Edge.RIGHT, True)
     LayerShell.auto_exclusive_zone_enable(window)
 
-    window.add_css_class("--mt-surface")
     window.set_child(bar(28))
     window.present()

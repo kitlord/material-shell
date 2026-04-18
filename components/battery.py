@@ -1,6 +1,6 @@
 from initgtk import Gtk
-from components.progress import CircularProgressBar
-from material.materialwidgets import material_icon
+from components.circular_progress import CircularProgressBar
+from components.icon import material_icon
 
 class Battery(Gtk.Box):
     def __init__(self, item_size, percentage=0.7, icon_name="battery_android_0"):

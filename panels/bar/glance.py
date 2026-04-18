@@ -1,5 +1,5 @@
 from initgtk import Gtk
-from material.materialwidgets import material_icon
+from components.icon import material_icon
 from panels.dashboard.dashboard import toggle_dashboard
 
 class GlanceWidget(Gtk.Box):
@@ -8,10 +8,10 @@ class GlanceWidget(Gtk.Box):
 
         self.set_css_classes(["bar-widget"])
 
-        volume = Gtk.Button(css_classes=["icon-button"])
+        volume = Gtk.Button()
         volume.set_child(material_icon("volume_up"))
 
-        brightness = Gtk.Button(css_classes=["icon-button"])
+        brightness = Gtk.Button()
         brightness.set_child(material_icon("brightness_medium"))
 
         for b in (volume, brightness):

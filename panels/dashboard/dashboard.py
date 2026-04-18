@@ -1,5 +1,8 @@
 _dashboard_window = None
-
+import panels.dashboard.mixer
+import panels.dashboard.theme
+import panels.dashboard.hub
+import panels.dashboard.geo
 
 def _build_dashboard(application=None):
 	from initgtk import Gtk, Gtk4LayerShell as LayerShell
@@ -11,29 +14,18 @@ def _build_dashboard(application=None):
 	LayerShell.set_anchor(window, LayerShell.Edge.TOP, True)
 	LayerShell.set_anchor(window, LayerShell.Edge.BOTTOM, True)
 	LayerShell.set_anchor(window, LayerShell.Edge.LEFT, True)
-	# LayerShell.set_margin(window, LayerShell.Edge.TOP, 34)
-	# LayerShell.set_keyboard_mode(window, LayerShell.KeyboardMode.ON_DEMAND)
 
-	panel = Gtk.Box(
-		orientation=Gtk.Orientation.VERTICAL,
-		spacing=12,
-		css_classes=["--mt-surface", "dashboard-panel"],
-	)
-	panel.set_size_request(360, -1)
-	panel.set_margin_top(12)
-	panel.set_margin_bottom(12)
-	panel.set_margin_end(12)
-	panel.set_margin_start(12)
+	panel = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6, css_classes=["transparent", "--mt-margin-small"])
+	mixer = panels.dashboard.mixer.mixer()
+	theme = panels.dashboard.theme.theme()
+	geo = panels.dashboard.geo.geo()
+	hub = panels.dashboard.hub.hub()
+	panel.append(mixer)
+	panel.append(geo)
+	panel.append(theme)
+	panel.append(hub)
 
-	title = Gtk.Label(label="Dashboard", xalign=0)
-	title.set_css_classes(["--mt-on-surface"])
-	title.add_css_class("dashboard-title")
-
-	content = Gtk.Label(label="Quick controls and glance widgets go here.", xalign=0)
-	content.set_css_classes(["--mt-on-surface-variant"])
-
-	panel.append(title)
-	panel.append(content)
+	# panel.set_size_request(260, -1)
 
 	window.set_child(panel)
 
